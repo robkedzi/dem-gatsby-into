@@ -8,7 +8,13 @@ const Insta = () => {
   const { username } = instaPhotos[0];
 
   return (
-    <>
+    <div
+      css={css`
+        display: flex;
+        flex-flow: column;
+        grid-area: 'side';
+      `}
+    >
       <h2>Instagram posts from @{username}</h2>
       <div
         css={css`
@@ -53,7 +59,7 @@ const Insta = () => {
         ))}
       </div>
       <a href={`https://instagram.com/${username}`}>See more on instargam</a>
-    </>
+    </div>
   );
 };
 

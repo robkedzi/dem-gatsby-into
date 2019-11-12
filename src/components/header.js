@@ -25,15 +25,23 @@ const NavLink = styled(Link)`
 const Header = () => (
   <header
     css={css`
-      background: #eee;
+      background: #fff;
       border-bottom: 1px solid #ddd;
       display: flex;
       justify-content: space-between;
-      padding: 0.5rem calc((100vw - 550px - 0.5rem) / 2);
+      padding: 1rem calc((100vw - 550px - 0.5rem) / 2);
     `}
   >
     {/* site name */}
     <NavLink to="/" fontWeight="bold">
+      <span
+        type="logo"
+        css={css`
+          font-size: 32px;
+        `}
+      >
+        🎉
+      </span>
       FEM Workshop
     </NavLink>
     {/* navigation */}

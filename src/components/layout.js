@@ -3,6 +3,8 @@ import { Global, css } from '@emotion/core';
 import Helmet from 'react-helmet';
 import Header from './header';
 import useSiteMetadata from './hooks/use-sitemetadata';
+import Insta from './insta';
+import Hero from './hero';
 
 const Layout = ({ children }) => {
   const { title, description } = useSiteMetadata();
@@ -63,15 +65,52 @@ const Layout = ({ children }) => {
         <title>{title}</title>
         <meta name="Description" content={description} />
       </Helmet>
+      <Hero />
       <Header />
       <main
         css={css`
           margin: 2rem auto 4rem;
-          max-width: 90vw;
-          width: 550px;
+          max-width: 70vw;
+          height: 100vh;
+
+          display: grid;
+          grid-template-columns: 5fr 2fr;
+          grid-template-rows: auto 1fr;
+          grid-template-areas: 'main side';
+
+          @media (max-width: 768px) {
+            grid-template-areas:
+              'main'
+              'side';
+            grid-template-columns: 1fr;
+            grid-template-rows:
+              1fr /* Content */
+              minmax(75px, auto); /* Sidebar */
+
+            margin: 0;
+            max-width: 100vw;
+
+            + * {
+              margin: 0;
+            }
+          }
         `}
       >
-        {children}
+        <div
+          css={css`
+            display: flex;
+            flex-flow: column;
+            grid-area: 'main';
+            margin-right: 2rem;
+
+            @media (max-width: 768px) {
+              margin: 0;
+            }
+          `}
+        >
+          {children}
+        </div>
+        <Insta />
       </main>
     </>
   );
