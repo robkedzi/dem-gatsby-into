@@ -20,6 +20,7 @@ module.exports = {
             resolve: 'gatsby-remark-images',
           },
         ],
+        plugins: [{ resolve: 'gatsby-remark-images' }],
       },
     },
     {
