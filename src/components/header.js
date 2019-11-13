@@ -37,10 +37,10 @@ const Header = () => (
       <span
         type="logo"
         css={css`
-          font-size: 32px;
+          font-size: 24px;
         `}
       >
-        🎉
+        🦄
       </span>
       FEM Workshop
     </NavLink>
