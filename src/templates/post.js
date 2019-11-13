@@ -5,7 +5,7 @@ import { styled } from '@emotion/core';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Layout from '../components/layout';
 import ReadLink from '../components/read-link';
-import BackgroundImage from 'gatsby-background-image';
+import Image from 'gatsby-image';
 
 export const query = graphql`
   query($slug: String!) {
@@ -15,7 +15,7 @@ export const query = graphql`
         author
         image {
           sharp: childImageSharp {
-            fluid(maxWidth: 500, quality: 90) {
+            fluid(quality: 90) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }
@@ -33,13 +33,16 @@ const PostTemplate = ({ data: { mdx: post } }) => {
         padding: 1rem;
       `}
     >
-      <BackgroundImage
-        Tag="section"
+      <Image
         css={css`
-          background-position: top 20% center;
+          width: 100%;
+          background-position: bottom center;
+          background-repeat: repeat-y;
           background-size: cover;
-          height: 60vh;
+          max-height: 300px;
         `}
+        objectFit="cover"
+        objectPosition="50% 50%"
         fluid={post.frontmatter.image.sharp.fluid}
       />
       <h1>{post.frontmatter.title}</h1>
