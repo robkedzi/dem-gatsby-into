@@ -13,6 +13,7 @@ const Insta = () => {
         display: flex;
         flex-flow: column;
         grid-area: 'side';
+        margin: 1rem 0.5rem;
       `}
     >
       <h2>Instagram posts from @{username}</h2>
@@ -21,7 +22,6 @@ const Insta = () => {
           display: flex;
           flex-wrap: wrap;
           justify-content: space-between;
-          margin: 1rem 0;
         `}
       >
         {instaPhotos.map(photo => (
@@ -31,8 +31,7 @@ const Insta = () => {
             css={css`
               box-shadow: 0;
               display: block;
-              margin: 0.5rem;
-              max-width: calc(33% - 1rem);
+              max-width: calc(33% - 0.5rem);
               width: 100%;
               height: 120px;
               transition: 200ms box-shadow linear;

@@ -45,17 +45,23 @@ const PostTemplate = ({ data: { mdx: post } }) => {
         objectPosition="50% 50%"
         fluid={post.frontmatter.image.sharp.fluid}
       />
-      <h1>{post.frontmatter.title}</h1>
-      <p
+      <div
         css={css`
-          font-size: 0.75rem;
+          margin: 0 0.5rem;
         `}
       >
-        Posted by {post.frontmatter.author}
-      </p>
-      <MDXRenderer>{post.body}</MDXRenderer>
+        <h1>{post.frontmatter.title}</h1>
+        <p
+          css={css`
+            font-size: 0.75rem;
+          `}
+        >
+          Posted by {post.frontmatter.author}
+        </p>
+        <MDXRenderer>{post.body}</MDXRenderer>
 
-      <ReadLink to="/">&larr; back to all posts</ReadLink>
+        <ReadLink to="/">&larr; back to all posts</ReadLink>
+      </div>
     </Layout>
   );
 };
