@@ -36,10 +36,18 @@ const Insta = () => {
               height: 120px;
               transition: 200ms box-shadow linear;
 
+              + * {
+                margin: 0;
+              }
+
               :focus,
               :hover {
                 box-shadow: 0 2px 14px #22222244;
                 z-index: 10;
+              }
+
+              @media (max-width: 1024px) {
+                max-width: calc(50% - 0.5rem);
               }
             `}
           >
@@ -49,9 +57,6 @@ const Insta = () => {
               css={css`
                 width: 100%;
                 height: 100%;
-                * {
-                  margin-top: 0;
-                }
               `}
             />
           </a>
